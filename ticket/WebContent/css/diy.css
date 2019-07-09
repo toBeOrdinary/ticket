@@ -1,0 +1,147 @@
+/*根据需要自定义的css样式
+ *
+ */
+
+#one a:link,#one a:visited{
+			color: black;
+			font-size: 16px;
+			text-decoration: none;
+		}
+		#one a:hover{
+			color: green;
+			text-decoration: none;
+		}
+		
+		.div_one{
+			width: 100%;
+			height: 35px;
+			background: #f8f8f8;
+			min-width: 1280px;
+		}
+		.divtop{
+			float:right;
+			width:100%;
+			float: left;
+			margin-left: 100px;
+			margin-top: 8px;
+		}
+		.div_two{
+			min-width: 1280px;
+			width: 100%;
+			height: 100px;
+			background-color: #f8f8de;
+		}
+		.img_brand_left{
+			height: 70px;
+			padding-left: 200px;
+			padding-top: 15px;
+		}
+		.img_brand_right{
+			height: 65px;
+			padding-right: 150px;
+			padding-top: 30px;
+		}
+		.is-left{
+			float: left;
+			padding-left: 50px;
+		}
+		.is-right{
+			float: right;
+		}
+		.div_three{
+			width: 100%;
+			height: 30px;
+			background: #23ac00;
+			min-width: 1280px;
+		}
+		.padding-toptext{
+			padding-top: 5px;
+		}
+		#three a:link,#three a:visited{
+			color: white;
+			font-size: 18px;
+			text-decoration: none;
+		}
+		#three a:hover{
+			color: greenyellow;
+			text-decoration: none;
+		}
+		
+		.ticket-inquiry {
+			position: absolute;
+			z-index: 1;
+			width: 390px;
+			background: #fff;
+			margin-top: 60px;
+			padding: 30px;
+			padding-bottom: 20px;
+			border-radius: 5px;
+			margin-left: 200px;
+			display: inline-block;}
+		.label {
+			font-size: 16px;
+			color: #333;
+			padding-bottom: 10px;}
+		.carousel{
+			min-width: 1280px;
+			}
+		.padding-top{
+			padding-top: 20px;
+		}
+		.serachbtn{
+			width: 208px;
+			height: 37px;
+			color: white;
+			background-color: mediumseagreen;
+			border-radius: 3px;
+			border: 0;
+		}
+		.clear{
+			clear: both;
+		}
+		.hot{
+			background: #ffffff;
+			width: 60%;
+			margin-bottom: 40px;
+			margin-top: 40px;
+		}
+		label {
+			display: block;
+			font: 1rem 'Fira Sans', sans-serif;
+		}
+		.notice{
+			width: 40%;
+			height: 200px;
+			background: #ffffff;
+			margin: 0 auto;
+			margin-bottom: 40px;
+			margin-top: 40px;
+		}
+
+		input,
+		label {
+			margin: .4rem 0;
+		}
+		.hot-detail{
+			float: left;
+			width: 211px;
+			height: 72px;
+			margin-right: 10px;
+			margin-top: 10px;
+			overflow: hidden;
+			padding: 0 15px;
+			cursor: pointer;
+			background: limegreen;
+			border: 1px solid;
+		}
+		.notice-detail{
+			border: 1px solid;
+		}
+		
+		li{
+			padding-top: 7px;
+			list-style: none;
+		}
+		
+		html{overflow-x: hidden;}
+		body{margin: 0 auto;}
