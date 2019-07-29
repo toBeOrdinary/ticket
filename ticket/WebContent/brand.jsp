@@ -34,7 +34,7 @@
 	
 	<!-- three开始 -->
 	<div id="three" class="div_three">
-		<a href="#" style="margin-left: 200px;">首页</a>
+		<a href="/ticket/index.jsp" style="margin-left: 200px;">首页</a>
 		<a href="#" style="margin-left: 30px;">汽车票</a>
 		<a href="#" style="margin-left: 30px;">帮助中心</a>
 		<a href="#" style="margin-left: 30px;">关于我们</a>	

@@ -3,13 +3,130 @@ package com.ticket.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.ticket.userbean.User;
+import com.ticket.bean.Order;
+import com.ticket.bean.User;
 import com.ticket.utils.JDBCUtils;
 
 
 //实现对数据库的操作，  这里只实现了 插入、查询功能
 public class UserDao {
+	//----------------------查询汽车票---------------------------------------------
+	public int busTicketEnquiry(String route) {
+		Connection conn=null;
+		Statement stmt=null;
+		ResultSet rs=null;
+		try {//获得数据的连接
+			conn = JDBCUtils.getConnection();
+			//获得Statement对象
+			stmt = conn.createStatement();
+			//发送sql语句
+			String sql = "select*from ticket where route='"+route+"'";
+			rs = stmt.executeQuery(sql);
+			int count=0;
+			while(rs.next()) {
+				count = rs.getInt("count");
+			}
+			
+			if(rs!=null) {
+				return count;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.release(rs, stmt,conn);
+		}
+		return 0;
+		
+	}
+	
+	//----------------------购买汽车票-------------------------------------------
+	public boolean buyTicket(String username,String route,String departure_date,String time) {
+		Connection conn=null;
+		Statement stmt=null;
+		ResultSet rs=null;
+		try {//获得数据的连接
+			conn = JDBCUtils.getConnection();
+			//获得Statement对象
+			stmt = conn.createStatement();
+			//发送sql语句
+			String sql = "update ticket set count=count-1 where route='"+route+"'";
+			int num = stmt.executeUpdate(sql);
+			if(num>0) {
+				return true;
+			}
+			return false;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.release(rs, stmt,conn);
+		}
+		return false;
+	}
+	//----------------------添加到我的订单-------------------------------------------
+	public boolean addToMyOrders(String username,String route,String departure_date,String time) {
+		Connection conn=null;
+		Statement stmt=null;
+		ResultSet rs=null;
+		try {//获得数据的连接
+			conn = JDBCUtils.getConnection();
+			//获得Statement对象
+			stmt = conn.createStatement();
+			//发送sql语句
+			String sql = "insert into orders values('"+username+"','"+route+"','"+departure_date+"','"+time+"')";
+			int num = stmt.executeUpdate(sql);
+			if(num>0) {
+				return true;
+			}
+			return false;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.release(rs, stmt,conn);
+		}
+		return false;
+	}
+	
+	//----------------------查询我的订单---------------------------------------------
+	//将获取到的记录封装到order对象   再把order装进List<Object>  return list   遍历list获取order，再使用order.xxx获取订单信息
+	public List<Order> myOrders(String username) {
+		List<Order> list = new ArrayList<>();
+		Connection conn=null;
+		Statement stmt=null;
+		ResultSet rs=null;
+		try {//获得数据的连接
+			conn = JDBCUtils.getConnection();
+			//获得Statement对象
+			stmt = conn.createStatement();
+			//发送sql语句
+			String sql = "select*from orders where username='"+username+"'";
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				Order order = new Order();
+				order.setRoute(rs.getString("route"));
+				order.setDeparture_date(rs.getString("departure_date"));
+				order.setTime(rs.getString("time"));
+				list.add(order);
+				System.out.println("来自UserDao,向list添加order对象："+order.getRoute()+order.getDeparture_date()+order.getTime());
+			}
+			//
+			for(int i=0;i<list.size();i++) {//根据list元素个数   执行对应次数的循环
+				Order o = new Order();
+				o = list.get(i);
+				System.out.println("来自UserDao,遍历list集合测试:"+o.getRoute()+o.getDeparture_date()+o.getTime());
+			}
+			return list;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.release(rs, stmt,conn);
+		}
+		return null;
+	}
+	
 	//----------------------注册用户----------------------------------------------
 	public boolean register(User user) {
 		Connection conn=null;

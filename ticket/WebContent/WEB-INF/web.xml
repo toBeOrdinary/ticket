@@ -48,4 +48,34 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/RegisterServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BusTicketEnquiry</display-name>
+    <servlet-name>BusTicketEnquiry</servlet-name>
+    <servlet-class>com.ticket.service.BusTicketEnquiry</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BusTicketEnquiry</servlet-name>
+    <url-pattern>/BusTicketEnquiry</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BuyTicket</display-name>
+    <servlet-name>BuyTicket</servlet-name>
+    <servlet-class>com.ticket.service.BuyTicket</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuyTicket</servlet-name>
+    <url-pattern>/BuyTicket</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyOrders</display-name>
+    <servlet-name>MyOrders</servlet-name>
+    <servlet-class>com.ticket.service.MyOrders</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyOrders</servlet-name>
+    <url-pattern>/MyOrders</url-pattern>
+  </servlet-mapping>
 </web-app>

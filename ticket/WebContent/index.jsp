@@ -24,25 +24,23 @@
 <div id="myCarousel" class="carousel slide">
 	<!-- 搜索框 -->
 	<div class="ticket-inquiry">
-		<div class="is-left">
-			出发地:
-			<input type="text" placeholder="成都/chengdu/cd"/>
-		</div>
-	
-		
-		<div class="is-left padding-top clear">
-			目的地:
-			<input type="text" placeholder="绵阳/mianyang/my"/>
-		</div>
-		
-		<div class="is-left padding-top">
-			出发日期:
-			<input type="date" name="trip-start" value="2019-06-24"/>
-		</div>
-		
-		<div class="is-left clear padding-top">
-			<button class="serachbtn" type="button">查询汽车票</button>
-		</div>
+		<form action="/ticket/BusTicketEnquiry" method="post">
+			<div class="is-left">
+				出发地:
+				<input type="text" name="start" placeholder="成都/chengdu/cd"/>
+			</div>
+			<div class="is-left padding-top clear">
+				目的地:
+				<input type="text" name="end" placeholder="绵阳/mianyang/my"/>
+			</div>
+			<div class="is-left padding-top">
+				出发日期:
+				<input type="date" name="departure_date" value="2019-06-24"/>
+			</div>
+			<div class="is-left clear padding-top">
+				<button class="serachbtn" type="submit" >查询汽车票</button>
+			</div>
+		</form>
 	</div>
 <!-- 轮播（Carousel）指标 -->
 	<ol class="carousel-indicators">

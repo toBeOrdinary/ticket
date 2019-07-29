@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ticket.bean.User;
 import com.ticket.dao.UserDao;
-import com.ticket.userbean.User;
 
 
 public class RegisterServlet extends HttpServlet {

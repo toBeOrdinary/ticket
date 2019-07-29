@@ -27,8 +27,7 @@
 		 		<a href="/ticket/login.jsp" style="margin-left: 750px;">登录</a>
 				<a href="/ticket/register.jsp" style="margin-left:15px;">注册</a>
 			</c:if>
-			
-			<a href="#" style="margin-left: 50px;">我的订单</a>
+			<a href="/ticket/MyOrders" style="margin-left: 50px;">我的订单</a>
 			<a href="#" style="margin-left: 15px;">我的消息</a>		
 		</div>
 	</div>
