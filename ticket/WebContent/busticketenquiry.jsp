@@ -13,7 +13,15 @@
 			color:white;
 		}
 	</style>
-<title>我的资料</title>
+	<script>
+		function myFunction(){
+			if(window.confirm("是否购票")){
+				return true;
+			}
+			return false;
+		}
+	</script>
+<title>车票查询</title>
 </head>
 <body>
 	<!-- 顶部用户信息栏 -->
@@ -35,7 +43,7 @@
 				<div style="margin-left:30px;padding:6.5px;">出发时间&nbsp;:&nbsp;08:00</div>
 				<div style="margin-left:30px;padding:6.5px;">剩余票数&nbsp;:&nbsp;${sessionScope.count }</div>
 				<form action="/ticket/BuyTicket" method="post">
-					<input type="submit" value="购票" class="submit"> 
+					<input type="submit" value="购票" class="submit" onclick="return myFunctinon()"> 
 				</form>
 			</div> 
 			

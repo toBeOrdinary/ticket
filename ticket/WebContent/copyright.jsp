@@ -9,7 +9,7 @@
 </head>
 <body>
 		<div style="height: 40px;background: #23ac00;text-align: center;margin-bottom: 20px;margin-top: -30px">
-		<h4 style="padding-top: 10px;color: white;">四川省热门城市出行网络售票&emsp;网上购票，省时省力</h4>
+		<h4 style="padding-top: 10px;color: white;">四川省城市出行网络售票&emsp;网上购票，省时省力</h4>
 	</div>
 	
 <div>

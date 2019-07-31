@@ -2,6 +2,7 @@ package com.ticket.bean;
 
 //订单bean
 public class Order {
+	private int id;
 	private String route;
 	private String departure_date;
 	private String time;
@@ -22,6 +23,12 @@ public class Order {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

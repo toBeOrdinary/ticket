@@ -78,4 +78,14 @@
     <servlet-name>MyOrders</servlet-name>
     <url-pattern>/MyOrders</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RefundTicket</display-name>
+    <servlet-name>RefundTicket</servlet-name>
+    <servlet-class>com.ticket.service.RefundTicket</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RefundTicket</servlet-name>
+    <url-pattern>/RefundTicket</url-pattern>
+  </servlet-mapping>
 </web-app>

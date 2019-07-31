@@ -112,7 +112,7 @@ public class UserDao {
 				list.add(order);
 				System.out.println("来自UserDao,向list添加order对象："+order.getRoute()+order.getDeparture_date()+order.getTime());
 			}
-			//
+			//通过遍历list集合  测试是否将每一个封装好的order对象添加到list集合
 			for(int i=0;i<list.size();i++) {//根据list元素个数   执行对应次数的循环
 				Order o = new Order();
 				o = list.get(i);
@@ -126,7 +126,32 @@ public class UserDao {
 		}
 		return null;
 	}
-	
+	//----------------------退票-------------------------------------------
+		public boolean refundTicket(String route,String username) {
+			Connection conn=null;
+			Statement stmt=null;
+			ResultSet rs=null;
+			try {//获得数据的连接
+				conn = JDBCUtils.getConnection();
+				//获得Statement对象
+				stmt = conn.createStatement();
+				//发送sql语句
+				String sql = "update ticket set count=count+1 where route='"+route+"'";
+				String sql1="delete from orders where username='"+username+"' and route='"+route+"'";
+				int num = stmt.executeUpdate(sql);
+				int num1=stmt.executeUpdate(sql1);
+				int i=num+num1;
+				if(i>1) {
+					return true;
+				}
+				return false;
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				JDBCUtils.release(rs, stmt,conn);
+			}
+			return false;
+		}
 	//----------------------注册用户----------------------------------------------
 	public boolean register(User user) {
 		Connection conn=null;
@@ -180,5 +205,4 @@ public class UserDao {
 		}
 		return null;
 	}
-
 }

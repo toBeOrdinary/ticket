@@ -10,12 +10,18 @@
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
 
+	<style>
+		#show_time{  
+		width:300px;
+		height:100px;
+		} 
+	</style>	
+
 <title>小众出行</title>
 </head>
 <body>
 	
 	<%@include file="top.jsp" %>
-
 	<!-- 品牌栏 包括导航栏 -->
 	<%@ include file="brand.jsp" %>
 	
@@ -108,8 +114,7 @@
 			</div>
 			<ul class="notice-detail" style="margin-top: 20px;">
 				<li style="margin-left: -20px;margin-top: -8px;margin-bottom: -6px;">
-					<marquee width=100% height=155px padding-top=-20px direction=up scrollamount=2>
-						<p style="font-size: 14px;">2019-6-24&emsp;23:00&emsp;管理员发布了新的公告1</p>
+					<marquee width=100% height=155px direction=up scrollamount=2>
 						<p style="font-size: 14px;">2019-6-24&emsp;23:00&emsp;管理员发布了新的公告1</p>
 						<p style="font-size: 14px;">2019-6-24&emsp;23:00&emsp;管理员发布了新的公告1</p>
 						<p style="font-size: 14px;">2019-6-24&emsp;23:00&emsp;管理员发布了新的公告1</p>
@@ -122,5 +127,8 @@
 	</div>
 </div>	
 	<%@include file="copyright.jsp" %>
+	<div id="show_time0" style="">
+	<script>setInterval("show_time0.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);  </script>
+	</div>
 </body>
 </html>

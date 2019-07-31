@@ -8,11 +8,19 @@
 		.submit{
 			margin-left:30px;
 			background:mediumseagreen;
-			width:100px;
+			width:60px;
 			height:30px;
 			color:white;
 		}
 	</style>
+	<script>
+		function myFunction(){
+			if(window.confirm("是否退票")){
+				return true;
+			}
+			return false;
+		}
+	</script>
 <title>我的资料</title>
 </head>
 <body>
@@ -27,21 +35,33 @@
 		<div style="width:500px;margin:auto;"> 
 			<h4>我的出行</h4>
 		</div>  
-		<div style="width:500px;height:250px;margin:auto;border:1px solid gray;">
+		<div style="width:500px;height:auto;margin:auto;border:1px solid gray;">
 			<div style="padding:8px;">丨我的订单 </div>
-			
-			<c:if test="${requestScope.orders !=null }">
-				<div style="width:auto;height:auto;">
-					<!-- 通过封装好的order获取订单信息 -->
-					<div style="margin-left:30px;padding:6.5px;">出行路线&nbsp;:&nbsp;${order0.route }</div>
-					<div style="margin-left:30px;padding:6.5px;">出发日期&nbsp;:&nbsp;${order0.departure_date }</div>
-					<div style="margin-left:30px;padding:6.5px;">出发时间&nbsp;:&nbsp;${order0.time }</div>
-					<form action="#" method="post">
-						<input type="submit" value="申请退票" class="submit"> 
+			<div style="margin-left:30px;padding:6.5px;">
+				<table>
+					<tr>
+						<td style="width:150px">出发地/目的地</td>
+						<td style="width:100px;">出发日期</td>
+						<td style="width:100px;">发车时间</td>
+						<td style="width:100px;"></td>
+					</tr>
+				</table>			
+				<c:forEach items="${orders }" var="order">
+					<form action="/ticket/RefundTicket" method="post">
+						<input type="hidden" name="route" value="${order.route }">
+						<table>
+							<tr>
+								<td style="width:150px;">${order.route }</td>
+								<td style="width:100px;">${order.departure_date }</td>
+								<td style="width:100px;">${order.time }</td>
+								<td style="width:100px;">
+									<input type="submit" value="退票" class="submit" onclick="return myFunction()">
+								</td>
+							</tr>
+						</table>
 					</form>
-				</div> 
-			</c:if>
-			
+				</c:forEach> 
+			</div>
 		</div> 
 	</div>
 	

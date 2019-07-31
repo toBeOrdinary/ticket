@@ -40,6 +40,7 @@ public class BuyTicket extends HttpServlet {
 					//response.setHeader("refresh", "3;url=/ticket/MyOrders");
 					break;
 				}
+				break;
 			}
 		}
 	}

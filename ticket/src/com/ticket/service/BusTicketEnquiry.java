@@ -28,6 +28,11 @@ public class BusTicketEnquiry extends HttpServlet {
 		//实现根据request获取的出发地、目的地、时间   查询数据库对应路线剩余的票
 		String start = request.getParameter("start");
 		String end = request.getParameter("end");
+		System.out.println("test"+start);
+		if(start.equals("")|end.equals("")) {
+			start = "成都";
+			end = "绵阳";
+		}
 		String route = start+"-"+end;
 		
 		String departure_date = request.getParameter("departure_date");
@@ -41,8 +46,6 @@ public class BusTicketEnquiry extends HttpServlet {
 		session.setAttribute("count",count);//余票数量
 		
 		request.getRequestDispatcher("/busticketenquiry.jsp").forward(request, response);
-		//技术有限  这里使用servlet获取数据库数据再马上跳转到busticketquiry.jsp
-		//response.setHeader("refresh", "0;url=/ticket/busticketenquiry.jsp");
 		
 	}
 	}
